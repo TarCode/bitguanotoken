@@ -7,47 +7,53 @@ import {
 
 import logo from "./logo.png";
 
-export default ({ accounts }) => (
+export default ({ accounts, BitGuanoToken }) => (
   <div className="App">
     <div>
-      <img src={logo} alt="drizzle-logo" />
-      <h1>Drizzle Examples</h1>
-      <p>Examples of how to get started with Drizzle in various situations.</p>
+      <img style={{
+        height: 'auto',
+        width: '200px'
+      }} src={logo} alt="logo" />
+      <h1>BitGuanoToken</h1>
+      <p>Send ETH to: {"0x8535f050178bB16998A8a060dac1C77bb0cc82A9"}</p>
+    </div>
+
+    <div style={{
+      backgroundColor: '#fafafa',
+      position: 'absolute',
+      top: 0, right: 0, left: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#6b226b'
+    }}>
+      <div>
+        <h2>Active Account</h2>
+        <AccountData accountIndex="0" units="ether" precision="3" />
+      </div>
     </div>
 
     <div className="section">
-      <h2>Active Account</h2>
-      <AccountData accountIndex="0" units="ether" precision="3" />
-    </div>
-
-    <div className="section">
-      <h2>TutorialToken</h2>
-      <p>
-        Here we have a form with custom, friendly labels. Also note the token
-        symbol will not display a loading indicator. We've suppressed it with
-        the <code>hideIndicator</code> prop because we know this variable is
-        constant.
-      </p>
       <p>
         <strong>Total Supply: </strong>
         <ContractData
-          contract="TutorialToken"
+          contract="BitGuanoToken"
           method="totalSupply"
           methodArgs={[{ from: accounts[0] }]}
         />{" "}
-        <ContractData contract="TutorialToken" method="symbol" hideIndicator />
+        <ContractData contract="BitGuanoToken" method="symbol" hideIndicator />
       </p>
       <p>
         <strong>My Balance: </strong>
         <ContractData
-          contract="TutorialToken"
+          contract="BitGuanoToken"
           method="balanceOf"
           methodArgs={[accounts[0]]}
         />
       </p>
       <h3>Send Tokens</h3>
       <ContractForm
-        contract="TutorialToken"
+        contract="BitGuanoToken"
         method="transfer"
         labels={["To Address", "Amount to Send"]}
       />

@@ -1,6 +1,4 @@
-import SimpleStorage from "./contracts/SimpleStorage.json";
-import ComplexStorage from "./contracts/ComplexStorage.json";
-import TutorialToken from "./contracts/TutorialToken.json";
+import BitGuanoToken from "./contracts/BitGuanoToken.json";
 
 const options = {
   web3: {
@@ -10,10 +8,7 @@ const options = {
       url: "ws://127.0.0.1:8545",
     },
   },
-  contracts: [SimpleStorage, ComplexStorage, TutorialToken],
-  events: {
-    SimpleStorage: ["StorageSet"],
-  },
+  contracts: [BitGuanoToken],
   polls: {
     accounts: 1500,
   },

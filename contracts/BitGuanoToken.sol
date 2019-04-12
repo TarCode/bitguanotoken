@@ -33,6 +33,7 @@ contract ERC20Interface {
     function transferFrom(address from, address to, uint tokens) public returns (bool success);
 
     event Transfer(address indexed from, address indexed to, uint tokens);
+
     event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
 
@@ -100,6 +101,7 @@ contract BitGuanoToken is ERC20Interface, Owned, SafeMath {
     constructor() public {
         symbol = "BGNT";
         name = "Bit Guano Token";
+        _totalSupply = 100000;
         decimals = 18;
         bonusEnds = now + 1 weeks;
         endDate = now + 7 weeks;
@@ -111,8 +113,7 @@ contract BitGuanoToken is ERC20Interface, Owned, SafeMath {
     // Total supply
     // ------------------------------------------------------------------------
     function totalSupply() public view returns (uint) {
-        uint supply = _totalSupply;
-        return supply  - balances[address(0)];
+        return _totalSupply - balances[address(0)];
     }
 
 
@@ -192,15 +193,15 @@ contract BitGuanoToken is ERC20Interface, Owned, SafeMath {
     }
 
     // ------------------------------------------------------------------------
-    // 100 BGNT Tokens per 1 ETH
+    // 10 BGNT Tokens per 1 ETH
     // ------------------------------------------------------------------------
     function () external payable {
         require(now >= startDate && now <= endDate);
         uint tokens;
         if (now <= bonusEnds) {
-            tokens = msg.value * 120;
+            tokens = msg.value * 12;
         } else {
-            tokens = msg.value * 100;
+            tokens = msg.value * 10;
         }
         balances[msg.sender] = safeAdd(balances[msg.sender], tokens);
         _totalSupply = safeAdd(_totalSupply, tokens);
