@@ -63,5 +63,7 @@ export default ({ accounts, BitGuanoToken }) => (
         labels={["To Address", "Amount to Send"]}
       />
     </div>
+      <br/><br/>
+    <p>Made by <a href="https://tarcode.github.io" target="_blank">Tarcode</a></p>
   </div>
 );

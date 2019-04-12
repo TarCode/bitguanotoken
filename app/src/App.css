@@ -11,6 +11,11 @@ label {
   transition: .25s ease;
 }
 
+a {
+  text-decoration: none;
+  color: yellow;
+}
+
 input {
   border: none;
   outline: none;
