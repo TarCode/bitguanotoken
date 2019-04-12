@@ -9,7 +9,25 @@ import logo from "./logo.png";
 
 export default ({ accounts, BitGuanoToken }) => (
   <div className="App">
-    <div>
+
+    <div style={{
+      backgroundColor: '#fafafa',
+      position: 'fixed',
+      top: 0, right: 0, left: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#6b226b'
+    }}>
+      <div>
+        <h5>Active Account</h5>
+        <AccountData accountIndex="0" units="ether" precision="3" />
+      </div>
+    </div>
+
+    <div style={{
+      paddingTop: '140px'
+    }}>
       <img style={{
         height: 'auto',
         width: '200px'
@@ -18,20 +36,7 @@ export default ({ accounts, BitGuanoToken }) => (
       <p>Send ETH to: {"0x8535f050178bB16998A8a060dac1C77bb0cc82A9"}</p>
     </div>
 
-    <div style={{
-      backgroundColor: '#fafafa',
-      position: 'absolute',
-      top: 0, right: 0, left: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: '#6b226b'
-    }}>
-      <div>
-        <h2>Active Account</h2>
-        <AccountData accountIndex="0" units="ether" precision="3" />
-      </div>
-    </div>
+    
 
     <div className="section">
       <p>
