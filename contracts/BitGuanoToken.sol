@@ -81,7 +81,7 @@ contract Owned {
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract bitfwdToken is ERC20Interface, Owned, SafeMath {
+contract BitGuanoToken is ERC20Interface, Owned, SafeMath {
     string public symbol;
     string public  name;
     uint8 public decimals;
@@ -98,8 +98,8 @@ contract bitfwdToken is ERC20Interface, Owned, SafeMath {
     // Constructor
     // ------------------------------------------------------------------------
     constructor() public {
-        symbol = "FWD";
-        name = "bitfwd Token";
+        symbol = "BGNT";
+        name = "Bit Guano Token";
         decimals = 18;
         bonusEnds = now + 1 weeks;
         endDate = now + 7 weeks;
@@ -192,15 +192,15 @@ contract bitfwdToken is ERC20Interface, Owned, SafeMath {
     }
 
     // ------------------------------------------------------------------------
-    // 1,000 FWD Tokens per 1 ETH
+    // 100 BGNT Tokens per 1 ETH
     // ------------------------------------------------------------------------
     function () external payable {
         require(now >= startDate && now <= endDate);
         uint tokens;
         if (now <= bonusEnds) {
-            tokens = msg.value * 1200;
+            tokens = msg.value * 120;
         } else {
-            tokens = msg.value * 1000;
+            tokens = msg.value * 100;
         }
         balances[msg.sender] = safeAdd(balances[msg.sender], tokens);
         _totalSupply = safeAdd(_totalSupply, tokens);
